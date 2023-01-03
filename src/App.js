@@ -24,6 +24,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(prefersDarkMode);
+
     dispatch(setMode(prefersDarkMode ? "dark" : "light"));
   }, [prefersDarkMode, dispatch]);
 
