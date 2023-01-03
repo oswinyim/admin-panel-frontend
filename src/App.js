@@ -22,15 +22,15 @@ function App() {
   // Get the system display mode
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const dispatch = useDispatch();
+  const mode = useSelector((state) => state.global.mode);
 
   useEffect(() => {
-    console.log(prefersDarkMode);
+    if (prefersDarkMode && mode !== "dark") {
+      dispatch(setMode());
+    }
+  }, [prefersDarkMode]); // eslint-disable-line
 
-    dispatch(setMode(prefersDarkMode ? "dark" : "light"));
-  }, [prefersDarkMode, dispatch]);
-
-  const mode = useSelector((state) => state.global.mode);
-  console.log(mode)
+  console.log(mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   return (

@@ -11,7 +11,6 @@ export const globalSlice = createSlice({
   initialState: initialState,
   reducers: {
     setMode: (state) => {
-      console.trace();
       state.mode = state.mode === "light" ? "dark" : "light";
     },
     setUserData: (state, actions) => {
